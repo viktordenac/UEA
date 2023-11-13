@@ -1,7 +1,7 @@
-package algorithms;
+package algorithms
 import Problem
 import Solution
-import kotlin.math.PI;
+import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.exp
 import kotlin.math.sqrt

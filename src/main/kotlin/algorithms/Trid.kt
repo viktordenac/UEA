@@ -1,6 +1,5 @@
 package algorithms
 import java.lang.Math.pow
-import kotlin.random.Random
 import Problem
 import Solution
 
@@ -15,8 +14,8 @@ class Trid(override val dimensions: Int) : Problem() {
     }
 
     override fun fitness(candidate: Solution): Solution {
-        var result = candidate.candidate.sumOf { pow(it - 1, 2.0) };
-        var res = 0.0;
+        val result = candidate.candidate.sumOf { pow(it - 1, 2.0) }
+        var res = 0.0
         for (i in 1..<candidate.candidate.count()) {
             res += candidate.candidate[i] * candidate.candidate[i - 1]
         }

@@ -1,9 +1,5 @@
 package algorithms
 import java.lang.Math.pow
-import kotlin.math.abs
-import kotlin.math.sin
-import kotlin.math.sqrt
-import kotlin.random.Random
 import Problem
 import Solution
 

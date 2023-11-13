@@ -3,7 +3,7 @@ class hillClimbing(steps: Double, maxFes: Int) : Algorithm(steps, maxFes) {
         var solution = problem.randomSolution()
         solution = problem.fitness(solution)
         var bestSolution = solution
-        var prevPoints = MutableList(0) { Solution() }
+        val prevPoints = MutableList(0) { Solution() }
         prevPoints.add(solution)
         var neighbors = problem.neighbors(solution, stepSize)
         var repetitions = 0

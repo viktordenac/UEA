@@ -1,11 +1,9 @@
 package algorithms
 import java.lang.Math.cos
-import java.lang.Math.pow
 import kotlin.math.abs
 import kotlin.math.exp
 import kotlin.math.pow
 import kotlin.math.sqrt
-import kotlin.random.Random
 import Problem
 import Solution
 

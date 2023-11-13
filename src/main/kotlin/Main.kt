@@ -1,5 +1,3 @@
-import kotlin.random.Random
-
 import algorithms.Sphere
 import algorithms.Ackley
 import algorithms.Schwefel26
@@ -9,7 +7,7 @@ import algorithms.CarromTable
 import algorithms.Easom
 import algorithms.Trid
 
-fun main(args: Array<String>) {
+fun main() {
     val dimensions = 2
     val problems = listOf(
         Sphere(dimensions),
@@ -21,7 +19,7 @@ fun main(args: Array<String>) {
         Easom(dimensions),
         Trid(dimensions)
     )
-    var stats = Statistics()
+    val stats = Statistics()
     val algorithm = hillClimbing(0.5, 10000)
 
     for (problem in problems) {

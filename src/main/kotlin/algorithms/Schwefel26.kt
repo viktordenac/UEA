@@ -2,7 +2,6 @@ package algorithms
 import Problem
 import Solution
 import kotlin.math.*
-import kotlin.random.Random
 
 class Schwefel26(override val dimensions: Int) : Problem() {
     override val name = "Schwefel26"

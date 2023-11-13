@@ -22,7 +22,7 @@ abstract class Problem {
 
         for (i in 0..<3.0.pow(dimensions.toDouble()).toInt()) {
             val neighbor = Solution()
-            var ternary = i.toString(3).padStart(dimensions, '0')
+            val ternary = i.toString(3).padStart(dimensions, '0')
             for (j in 0..<dimensions) {
                 val dimensionIndex = ternary[j].toString().toInt() - 1
                 neighbor.candidate.add(solution.candidate[j] + dimensionIndex * stepSize)
