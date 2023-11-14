@@ -9,26 +9,26 @@ import algorithms.Trid
 
 fun main() {
     val dimensions = 2
+    val statistics = Statistics()
+    val algorithm = hillClimbing(0.5, 10000)
+
     val problems = listOf(
-        Sphere(dimensions),
         Ackley(dimensions),
-        Schwefel26(dimensions),
-        Rosenbrock(dimensions),
         Bukin(2),
         CarromTable(dimensions),
         Easom(dimensions),
+        Rosenbrock(dimensions),
+        Schwefel26(dimensions),
+        Sphere(dimensions),
         Trid(dimensions)
     )
-    val stats = Statistics()
-    val algorithm = hillClimbing(0.5, 10000)
 
-    for (problem in problems) {
-        println(problem.name)
+    for (case in problems) {
+        println(case.name)
         for (i in 0..100) {
-            val solution = algorithm.execute(problem)
-            stats.add(problem.name, solution.fitnessValue)
-            //println("${problem.name} ${solution.fitnessValue}")
+            val solution = algorithm.execute(case)
+            statistics.add(case.name, solution.fitnessValue)
         }
     }
-    stats.printStatistics()
+    statistics.printStatistics()
 }
