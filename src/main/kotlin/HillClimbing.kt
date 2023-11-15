@@ -1,10 +1,12 @@
-class hillClimbing(steps: Double, maxFes: Int) : Algorithm(steps, maxFes) {
+class HillClimbing(var stepSize : Double = 0.5, maxFes: Int) : Algorithm(maxFes) {
+
     override fun execute(problem: Problem): Solution {
         // Initialization
         var solution = problem.randomSolution()
+        var currentFes = 0
         solution = problem.fitness(solution)
 
-        var result = solution
+        var bestSolution = solution
 
         val prevPoints = MutableList(0) { Solution() }
         prevPoints.add(solution)
@@ -13,10 +15,12 @@ class hillClimbing(steps: Double, maxFes: Int) : Algorithm(steps, maxFes) {
         var repetitions = 0
 
         // Main Loop
-        repeat(maxFes - 1) {
+        while (currentFes <= maxFes-1){
+            currentFes += 4
+
             // Replenish neighbors if the list is empty
             if (neighbors.isEmpty()) {
-                neighbors = problem.neighbors(result, stepSize)
+                neighbors = problem.neighbors(bestSolution, stepSize)
             }
 
             // Remove already visited neighbors
@@ -35,16 +39,16 @@ class hillClimbing(steps: Double, maxFes: Int) : Algorithm(steps, maxFes) {
             neighbor = problem.fitness(neighbor)
 
             // Fitness Comparison and Update
-            if (neighbor.fitnessValue == result.fitnessValue) {
+            if (neighbor.fitnessValue == bestSolution.fitnessValue) {
                 repetitions += 1
-            } else if (neighbor.fitnessValue < result.fitnessValue) {
-                result = neighbor
+            } else if (neighbor.fitnessValue < bestSolution.fitnessValue) {
+                bestSolution = neighbor
                 repetitions = 0
             }
 
             // Add the neighbor to the list of visited points
             prevPoints.add(neighbor)
-
+//TODO fix the logic of this and above the neigbor.fitness if statement
             // Repetition Check
             if (repetitions > 5) {
                 repetitions = 0
@@ -54,6 +58,6 @@ class hillClimbing(steps: Double, maxFes: Int) : Algorithm(steps, maxFes) {
         }
 
         // Return the best solution found
-        return result
+        return bestSolution
     }
 }

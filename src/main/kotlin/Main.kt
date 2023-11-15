@@ -10,7 +10,7 @@ import algorithms.Trid
 fun main() {
     val dimensions = 2
     val statistics = Statistics()
-    val algorithm = hillClimbing(0.5, 10000)
+    val algorithm = HillClimbing( 0.5 ,10000)
 
     val problems = listOf(
         Ackley(dimensions),
