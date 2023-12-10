@@ -1,7 +1,7 @@
 package algorithms
 import java.lang.Math.pow
 import Problem
-import Solution
+import solution.Solution
 
 class Trid(override val dimensions: Int) : Problem() {
     override val name = "Trid"

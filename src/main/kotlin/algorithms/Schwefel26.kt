@@ -1,6 +1,6 @@
 package algorithms
 import Problem
-import Solution
+import solution.Solution
 import kotlin.math.*
 
 class Schwefel26(override val dimensions: Int) : Problem() {

@@ -1,7 +1,7 @@
 package algorithms
 
 import Problem
-import Solution
+import solution.Solution
 
 class Sphere(override val dimensions: Int) : Problem() {
     override val name = "Sphere"

@@ -5,7 +5,7 @@ import kotlin.math.exp
 import kotlin.math.pow
 import kotlin.math.sqrt
 import Problem
-import Solution
+import solution.Solution
 
 class CarromTable(override var dimensions: Int) : Problem() {
     override val name = "CarromTable"

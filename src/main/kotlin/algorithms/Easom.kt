@@ -3,7 +3,7 @@ import kotlin.math.cos
 import kotlin.math.exp
 import kotlin.math.pow
 import Problem
-import Solution
+import solution.Solution
 
 class Easom(override var dimensions: Int) : Problem() {
     override val name = "Easom"

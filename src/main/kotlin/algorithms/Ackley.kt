@@ -1,6 +1,6 @@
 package algorithms
 import Problem
-import Solution
+import solution.Solution
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.exp

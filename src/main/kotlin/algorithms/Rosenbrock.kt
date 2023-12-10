@@ -1,7 +1,7 @@
 package algorithms
 import java.lang.Math.pow
 import Problem
-import Solution
+import solution.Solution
 
 class Rosenbrock(override val dimensions: Int) : Problem() {
     override val name = "Rosenbrock"

@@ -3,7 +3,7 @@ import java.lang.Math.pow
 import kotlin.math.abs
 import kotlin.math.sqrt
 import Problem
-import Solution
+import solution.Solution
 
 class Bukin(override var dimensions: Int) : Problem() {
     override val name = "Bukin"

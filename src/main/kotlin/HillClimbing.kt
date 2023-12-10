@@ -1,6 +1,7 @@
+import solution.Solution
 import kotlin.math.pow
 
-class HillClimbing(var stepSize : Double = 0.5, maxFes: Int) : Algorithm(maxFes) {
+class HillClimbing(var stepSize: Double = 0.5, maxFes: Int) : Algorithm(maxFes) {
 
     fun neighbors(solution: Solution, stepSize: Double, problem: Problem): MutableList<Solution> {
         var neighbors = mutableListOf<Solution>()
@@ -28,7 +29,12 @@ class HillClimbing(var stepSize : Double = 0.5, maxFes: Int) : Algorithm(maxFes)
         prevPoints.add(solution)
         var neighbors = neighbors(solution, stepSize, problem)
         var repetitions = 0
-        repeat(maxFes - 1) {
+
+        var currentFes = 0
+
+        while (currentFes <= maxFes - 1) {
+            currentFes += 4
+
             if (neighbors.isEmpty()) {
                 neighbors = neighbors(bestSolution, stepSize, problem)
             }

@@ -1,3 +1,4 @@
+import solution.Solution
 import kotlin.math.pow
 import kotlin.random.Random
 
