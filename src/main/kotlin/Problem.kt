@@ -1,4 +1,3 @@
-import kotlin.math.pow
 import kotlin.random.Random
 
 // Abstract class representing a optimization problem
@@ -19,7 +18,7 @@ abstract class Problem {
     }
 
     // Generates a list of neighboring solutions based on the given step size
-    fun neighbors(solution: Solution, stepSize: Double): MutableList<Solution> {
+    /*fun neighbors(solution: Solution, stepSize: Double): MutableList<Solution> {
         var neighbors = mutableListOf<Solution>()
         val dimensions = solution.candidate.size
 
@@ -37,7 +36,7 @@ abstract class Problem {
         }
         neighbors = neighbors.distinct().toMutableList() // Remove duplicates
         return neighbors
-    }
+    }*/
 
     // Checks if a solution is within the feasible bounds
     fun isFeasible(candidate: Solution): Boolean {
