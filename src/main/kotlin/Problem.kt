@@ -18,27 +18,6 @@ abstract class Problem {
         return solution
     }
 
-    // Generates a list of neighboring solutions based on the given step size
-    /*fun neighbors(solution: Solution, stepSize: Double): MutableList<Solution> {
-        var neighbors = mutableListOf<Solution>()
-        val dimensions = solution.candidate.size
-
-        // Iterate over all possible neighbors using ternary representation
-        for (i in 0 until 2.0.pow(dimensions.toDouble()).toInt()) {
-            val neighbor = Solution()
-            val ternary = i.toString(3).padStart(dimensions, '0')
-            for (j in 0 until dimensions) {
-                val dimensionIndex = ternary[j].toString().toInt() - 1
-                neighbor.candidate.add(solution.candidate[j] + dimensionIndex * stepSize) //zahteva 2n sosedov
-            }
-            // Skip if the neighbor is the same as the original solution or if it is not feasible
-            if (neighbor.candidate == solution.candidate || !isFeasible(neighbor)) continue
-            neighbors.add(setFeasible(neighbor))
-        }
-        neighbors = neighbors.distinct().toMutableList() // Remove duplicates
-        return neighbors
-    }*/
-
     // Checks if a solution is within the feasible bounds
     fun isFeasible(candidate: Solution): Boolean {
         for (i in 0..<candidate.candidate.size) {

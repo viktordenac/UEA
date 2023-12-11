@@ -22,7 +22,7 @@ class PSO(maxFes: Int) : Algorithm(maxFes) {
 
         repeat(sizeOfPopulation) { i ->
             particles[i].candidate = problem.randomSolution().candidate
-            particles[i].bestCandidate = particles[i].returnCandidate()
+            particles[i].bestCandidate = particles[i].getCandidates()
             particles[i].velocity =
                 MutableList(problem.dimensions) { Random.nextDouble(problem.lowerBound[it], problem.upperBound[it]) }
 
@@ -42,18 +42,18 @@ class PSO(maxFes: Int) : Algorithm(maxFes) {
                 }
                 repeat(problem.dimensions - 1) {
                     particles[i].candidate[it] =
-                        particles[i].returnCandidateAtI(it) + particles[i].returnVelocityAtI(it)
+                        particles[i].getCandidateAt(it) + particles[i].getVelocityAt(it)
                 }
                 particles[i].candidate = problem.setFeasible(particles[i]).candidate
 
                 particles[i].fitnessValue = problem.fitness(particles[i]).fitnessValue
                 if (particles[i].fitnessValue < particles[i].fitnessValue) {
-                    particles[i].bestCandidate = particles[i].returnCandidate()
+                    particles[i].bestCandidate = particles[i].getCandidates()
                 }
 
                 if (particles[i].fitnessValue < g.bestFitnessValue) {
-                    g.bestFitnessValue = particles[i].returnFitnes()
-                    g.bestCandidate = particles[i].returnCandidate()
+                    g.bestFitnessValue = particles[i].getFitnessValues()
+                    g.bestCandidate = particles[i].getCandidates()
                 }
             }
         }

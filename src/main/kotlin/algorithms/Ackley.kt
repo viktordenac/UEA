@@ -20,6 +20,7 @@ class Ackley(override val dimensions: Int) : Problem() {
         val term2 = exp(
             (1.0 / dimensions) * candidate.candidate.sumOf { cos(2 * PI * it) }
         )
+        
         candidate.fitnessValue = term1 - term2 + 20 + exp(1.0)
         return candidate
     }

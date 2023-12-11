@@ -19,11 +19,11 @@ class CarromTable(override var dimensions: Int) : Problem() {
     }
 
     override fun fitness(candidate: Solution): Solution {
-        val firstTerm = -(1 / 30.0) * exp(
+        val term1 = -(1 / 30.0) * exp(
             2 * abs(1.0 - (sqrt(candidate.candidate[0] * candidate.candidate[0] + candidate.candidate[1] * candidate.candidate[1]) / Math.PI))
         )
-        val secondTerm = cos(candidate.candidate[0]).pow(2.0) * cos(candidate.candidate[1]).pow(2.0)
-        candidate.fitnessValue = firstTerm * secondTerm
+        val term2 = cos(candidate.candidate[0]).pow(2.0) * cos(candidate.candidate[1]).pow(2.0)
+        candidate.fitnessValue = term1 * term2
 
         return candidate
     }
