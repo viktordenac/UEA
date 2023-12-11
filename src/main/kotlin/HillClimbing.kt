@@ -9,7 +9,7 @@ class HillClimbing(var stepSize: Double = 0.5, maxFes: Int) : Algorithm(maxFes) 
 
         for (i in 0..<3.0.pow(dimensions.toDouble()).toInt()) {
             val neighbor = Solution()
-            var ternary = i.toString(3).padStart(dimensions, '0')
+            val ternary = i.toString(3).padStart(dimensions, '0')
             for (j in 0..<dimensions) {
                 val dimensionIndex = ternary[j].toString().toInt() - 1
                 neighbor.candidate.add(solution.candidate[j] + dimensionIndex * stepSize)
@@ -22,18 +22,19 @@ class HillClimbing(var stepSize: Double = 0.5, maxFes: Int) : Algorithm(maxFes) 
     }
 
     override fun execute(problem: Problem): Solution {
-        var solution = problem.randomSolution()
-        solution = problem.fitness(solution)
-        var bestSolution = solution
-        var prevPoints = MutableList(0) { Solution() }
+        val solution = problem.randomSolution()
+        var bestSolution = problem.fitness(solution)
+
+        val prevPoints = MutableList(0) { Solution() }
         prevPoints.add(solution)
+
         var neighbors = neighbors(solution, stepSize, problem)
         var repetitions = 0
 
         var currentFes = 0
 
         while (currentFes <= maxFes - 1) {
-            currentFes += 4
+            currentFes += 2*(problem.dimensions)
 
             if (neighbors.isEmpty()) {
                 neighbors = neighbors(bestSolution, stepSize, problem)
