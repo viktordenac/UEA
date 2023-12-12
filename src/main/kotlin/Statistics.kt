@@ -39,4 +39,8 @@ class Statistics {
             )
         }
     }
+
+    fun printStatisticsForProblem(key: String): String {
+        return "$key min: ${dictionary[key]?.min()} avg: ${calculateAverage(key)}  std: ${calculateStandardDeviation(key)}\n"
+    }
 }

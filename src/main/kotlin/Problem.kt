@@ -30,7 +30,7 @@ abstract class Problem {
 
     // Adjusts a solution to be within the feasible bounds
     fun setFeasible(candidate: Solution): Solution {
-        for (i in 0..<candidate.candidate.size) {
+        for (i in 0..< dimensions) {
             if (candidate.candidate[i] < lowerBound[i]) {
                 candidate.candidate[i] = lowerBound[i]
             } else if (candidate.candidate[i] > upperBound[i]) {
